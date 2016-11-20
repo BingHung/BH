@@ -33,3 +33,4 @@ let closureWithNoParmetersAndNoReturnValues: () -> Void = {
 }
 
 closureWithNoParmetersAndNoReturnValues()
+// 
