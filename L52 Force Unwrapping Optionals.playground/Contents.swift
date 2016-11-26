@@ -31,8 +31,11 @@ print(job!)
 job = nil
 //print(job!) -> we can't unwrapped optional
 job = "CS enginnering"
-if job != nil {
+if job != nil { // this is the safety check
     print(job!)
 }
+
+
+
 
 
