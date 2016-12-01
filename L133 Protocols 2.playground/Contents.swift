@@ -86,3 +86,5 @@ myBoxer.punchPower
 
 myBoxer.punchSpeed = 666
 
+
+
