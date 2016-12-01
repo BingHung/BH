@@ -52,5 +52,5 @@ print(mySecondMobile.computerName)
 let myMobileComputer = Computer(computerName: "Galaxy S6", computerPower: 200, computerSpeed: 250)
 let myThirdMobile = Mobile(computer: myMobileComputer, screenType: "Touch Screen")
 
-
-
+// In swift we can only inherit from one class
+// can unlimited number fo subclass
