@@ -178,7 +178,184 @@ myGalaxyS6.returnAmountOfRam()
 myGalaxyS6.nameOfOperatingSystem()
 
 
+protocol ConvertIntToDouble {
+    
+    func convertToDouble() -> Double
+    
+}
 
+// extension , in order to extend functionality of your type
+extension Int : ConvertIntToDouble {
+   
+    // self refer to instance , of this int data type
+    func convertToDouble() -> Double {
+        return Double(self)  // convert to double
+    }
+    
+}
+
+2.convertToDouble()
+print(2.convertToDouble())
+
+var number20 = 20
+print(number20.convertToDouble())
+
+
+class BoxerClass : Boxing {
+    
+    func throwJab() {
+        print("Jab")
+    }
+    
+    func throwCross() {
+        print("Cross")
+    }
+    
+    func throwUppercut() {
+        print("Uppercut")
+    }
+    
+    func throwHook() {
+        print("throwHook")
+    }
+
+    var stamina: Int = 200
+    var punchPower: Int = 300
+    var punchSpeed: Int = 400
+    
+}
+
+// In Swift all, struct , class , enum call all conform to the protocol
+struct BoxerSruct : Boxing {
+    
+    func throwJab() {
+        print("Jab")
+    }
+    
+    func throwCross() {
+        print("Cross")
+    }
+    
+    func throwUppercut() {
+        print("Uppercut")
+    }
+    
+    func throwHook() {
+        print("throwHook")
+    }
+
+    var stamina: Int
+    var punchSpeed: Int
+    var punchPower: Int
+    
+}
+
+
+// In enum we can't have stored property , we can only have computed property
+enum BoxerEnum : Boxing {
+    
+    case AmatureBoxer
+    case ProfessionalBoxer
+    
+    
+    // { get set } > computed property
+    var stamina: Int {
+        
+        get {
+            switch self { // self > instance of these BoxerEnum (AmatureBoxer, ProfessionalBoxer)
+            case .AmatureBoxer :
+                return 1000
+            case .ProfessionalBoxer :
+                return 2000
+            }
+        }
+        
+        // we can ignore get if i want , but we need to provide here
+        set {
+            
+            
+        }
+        
+    }
+    
+    var punchSpeed: Int {
+        
+        // we can >
+        /*
+        get {
+            
+        }*/
+        
+        return 1000 // for both instances ....
+        
+    }
+    
+    
+    var punchPower: Int {
+        
+        switch self {
+        case .AmatureBoxer:
+            return 2000
+        case .ProfessionalBoxer:
+            return 4000
+        }
+        
+    }
+    
+    func throwJab() {
+        switch self {
+        case .AmatureBoxer:
+            print("The Amature ....")
+        default:
+            print("The Professional")
+        }
+    }
+    
+    func throwCross() {
+        print("Cross")
+    }
+    
+    func throwUppercut() {
+        print("Uppercut")
+    }
+    
+    func throwHook() {
+        print("throwHook")
+    }
+
+    
+    
+}
+
+// every instances , that actually conform to your specific protocol can be assigned to your variable
+var myBoxerOfClass : Boxing  =  BoxerClass()
+myBoxerOfClass.stamina
+myBoxerOfClass.throwJab()
+
+
+var myBoxerOfStruct : Boxing = BoxerSruct(stamina: 200, punchSpeed: 400, punchPower: 700)
+myBoxerOfStruct.stamina
+myBoxerOfStruct.throwHook()
+
+
+var amatureBoxerEnum : Boxing = BoxerEnum.AmatureBoxer
+amatureBoxerEnum.stamina
+amatureBoxerEnum.throwCross()
+
+var professionalBoxerOfEnum : Boxing = BoxerEnum.ProfessionalBoxer
+professionalBoxerOfEnum.stamina
+professionalBoxerOfEnum.throwHook()
+
+
+
+
+
+var arrayOfBoxers : Array<Boxing> = [myBoxerOfClass, myBoxerOfStruct, amatureBoxerEnum, professionalBoxerOfEnum]
+//print(arrayOfBoxers[0])
+
+for boxer in arrayOfBoxers {
+    print(boxer)
+}
 
 
 
